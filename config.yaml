@@ -1,0 +1,19 @@
+seed: 42
+path_to_save_folder: models
+
+# data
+data:
+  data_path: data/data.csv
+  sep: ','
+  text_column: text
+
+# tf-idf
+tf-idf:
+  lowercase: true
+  ngram_range: (1, 1)
+  max_df: 1.0
+  min_df: 1
+
+# svd
+svd:
+  n_components: 5
