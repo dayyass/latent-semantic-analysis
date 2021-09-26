@@ -8,7 +8,7 @@ def get_argparse() -> ArgumentParser:
     :rtype: ArgumentParser
     """
 
-    parser = ArgumentParser(prog="text-clf-train")
+    parser = ArgumentParser()
     parser.add_argument(
         "--path_to_config",
         type=str,
