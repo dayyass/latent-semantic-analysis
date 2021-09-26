@@ -17,3 +17,4 @@ tf-idf:
 # svd
 svd:
   n_components: 5
+  algorithm: arpack
