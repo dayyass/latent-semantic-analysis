@@ -17,3 +17,8 @@ venv
 dist
 
 *.egg-info/
+
+data/data.csv
+
+models/*
+!models/README.md
