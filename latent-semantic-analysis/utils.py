@@ -1,7 +1,9 @@
-from argparse import ArgumentParser
-import random
-import numpy as np
 import logging
+import random
+import sys
+from argparse import ArgumentParser
+
+import numpy as np
 
 
 def get_argparse() -> ArgumentParser:
@@ -30,7 +32,7 @@ def get_logger(path_to_logfile: str) -> logging.Logger:
     :rtype: logging.Logger
     """
 
-    logger = logging.getLogger("text-clf-train")
+    logger = logging.getLogger("lsa-train")
     logger.setLevel(logging.INFO)
 
     # create handlers
