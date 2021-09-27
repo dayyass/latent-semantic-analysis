@@ -31,9 +31,6 @@ def get_config(path_to_config: str) -> Dict[str, Any]:
     config["path_to_config"] = path_to_config
     config["path_to_save_model"] = config["path_to_save_folder"] / "model.joblib"
     config["path_to_save_logfile"] = config["path_to_save_folder"] / "logging.txt"
-    config["path_to_save_target_names_mapping"] = (
-        config["path_to_save_folder"] / "target_names.json"
-    )
 
     # tf-idf
     if ("tf-idf" not in config) or (config["tf-idf"] is None):
@@ -43,9 +40,9 @@ def get_config(path_to_config: str) -> Dict[str, Any]:
             config["tf-idf"]["ngram_range"]
         )
 
-    # logreg
-    if ("logreg" not in config) or (config["logreg"] is None):
-        config["logreg"] = {}
+    # svd
+    if ("svd" not in config) or (config["svd"] is None):
+        config["svd"] = {}
 
     return config
 
@@ -61,7 +58,7 @@ def load_default_config(
     """
 
     # get logger
-    logger = logging.getLogger("text-clf-load-config")
+    logger = logging.getLogger("lsa-config")
     logger.setLevel(logging.INFO)
 
     stream_handler = logging.StreamHandler(sys.stdout)
@@ -81,11 +78,9 @@ def load_default_config(
         "",
         "# data",
         "data:",
-        "  train_data_path: data/train.csv",
-        "  valid_data_path: data/valid.csv",
+        "  data_path: data/data.csv",
         "  sep: ','",
         "  text_column: text",
-        "  target_column: target_name_short",
         "",
         "# tf-idf",
         "tf-idf:",
@@ -94,18 +89,10 @@ def load_default_config(
         "  max_df: 1.0",
         "  min_df: 1",
         "",
-        "# logreg",
-        "logreg:",
-        "  penalty: l2",
-        "  C: 1.0",
-        "  class_weight: balanced",
-        "  solver: saga",
-        "  n_jobs: -1",
-        "",
-        "# grid-search",
-        "grid-search:",
-        "  do_grid_search: false",
-        "  grid_search_params_path: hyperparams.py",
+        "# svd",
+        "svd:",
+        "  n_components: 5",
+        "  algorithm: arpack",
     ]
 
     if os.path.exists(path):
