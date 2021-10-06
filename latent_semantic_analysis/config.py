@@ -91,7 +91,7 @@ def load_default_config(
         "",
         "# svd",
         "svd:",
-        "  n_components: 5",
+        "  n_components: 10",
         "  algorithm: arpack",
     ]
 
