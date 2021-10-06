@@ -62,7 +62,9 @@ def _train(
 
     # term2topic from matrix V
     V = pipe["svd"].components_.T
-    term2topic = {term: V[idx].tolist() for term, idx in pipe['tf-idf'].vocabulary_.items()}
+    term2topic = {
+        term: V[idx].tolist() for term, idx in pipe["tf-idf"].vocabulary_.items()
+    }
 
     logger.info("Done!")
     logger.info(f"TF-IDF number of features: {len(term2topic)}")
@@ -73,6 +75,8 @@ def _train(
     save_model(
         pipe=pipe,
         config=config,
+        doc2topic=doc2topic,
+        term2topic=term2topic,
     )
 
     logger.info("Done!")

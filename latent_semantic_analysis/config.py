@@ -31,6 +31,12 @@ def get_config(path_to_config: str) -> Dict[str, Any]:
     config["path_to_config"] = path_to_config
     config["path_to_save_model"] = config["path_to_save_folder"] / "model.joblib"
     config["path_to_save_logfile"] = config["path_to_save_folder"] / "logging.txt"
+    config["path_to_save_model_doc2topic"] = (
+        config["path_to_save_folder"] / "doc2topic.json"
+    )
+    config["path_to_save_model_term2topic"] = (
+        config["path_to_save_folder"] / "term2topic.json"
+    )
 
     # tf-idf
     if ("tf-idf" not in config) or (config["tf-idf"] is None):
