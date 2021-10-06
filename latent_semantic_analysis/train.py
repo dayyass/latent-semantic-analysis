@@ -56,12 +56,16 @@ def _train(
 
     pipe.fit(data)
 
-    sentence2topic_U = pipe.transform(data)
-    sigma = pipe["svd"].singular_values_
-    token2topic_V = pipe["svd"].components_.T
+    # doc2topic from matrix U
+    U = pipe.transform(data)
+    doc2topic = {doc: U[idx].tolist() for idx, doc in enumerate(data)}
+
+    # term2topic from matrix V
+    V = pipe["svd"].components_.T
+    term2topic = {term: V[idx].tolist() for term, idx in pipe['tf-idf'].vocabulary_.items()}
 
     logger.info("Done!")
-    logger.info(f"TF-IDF number of features: {len(pipe['tf-idf'].vocabulary_)}")
+    logger.info(f"TF-IDF number of features: {len(term2topic)}")
 
     # save model
     logger.info("Saving the model...")
