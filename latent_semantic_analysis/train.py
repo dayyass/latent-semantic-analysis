@@ -56,29 +56,12 @@ def _train(
 
     pipe.fit(data)
 
+    sentence2topic_U = pipe.transform(data)
+    sigma = pipe["svd"].singular_values_
+    token2topic_V = pipe["svd"].components_.T
+
     logger.info("Done!")
     logger.info(f"TF-IDF number of features: {len(pipe['tf-idf'].vocabulary_)}")
-
-    # # metrics
-    # logger.info("Calculating metrics...")
-
-    # y_pred_train = pipe.predict(X_train)
-    # classification_report_train = classification_report(
-    #     y_true=y_train,
-    #     y_pred=y_pred_train,
-    #     target_names=target_names,
-    # )
-
-    # logger.info(f"Train classification report:\n\n{classification_report_train}")
-
-    # y_pred_valid = pipe.predict(X_valid)
-    # classification_report_valid = classification_report(
-    #     y_true=y_valid,
-    #     y_pred=y_pred_valid,
-    #     target_names=target_names,
-    # )
-
-    # logger.info(f"Valid classification report:\n\n{classification_report_valid}")
 
     # save model
     logger.info("Saving the model...")
