@@ -78,3 +78,11 @@ svd:
 ```
 
 **NOTE**: `tf-idf` and `svd` are sklearn [**TfidfVectorizer**](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html?highlight=tfidf#sklearn.feature_extraction.text.TfidfVectorizer) and [**TruncatedSVD**](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.TruncatedSVD.html) parameters correspondingly, so you can parameterize instances of these classes however you want.
+
+#### Output
+After training the model, the pipeline will return the following files:
+- `model.joblib` - sklearn pipeline with LSA (TF-IDF and SVD steps)
+- `config.yaml` - config that was used to train the model
+- `logging.txt` - logging file
+- `doc2topic.json` - document embeddings
+- `term2topic.json` - term embeddings
