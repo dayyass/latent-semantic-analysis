@@ -1,5 +1,6 @@
 *.DS_Store
 .python-version
+*.ipynb
 *.ipynb_checkpoints
 
 # cache
