@@ -36,3 +36,45 @@ latent_semantic_analysis.train(path_to_config="config.yaml")
 **NOTE**: more about config file [here](https://github.com/dayyass/latent-semantic-analysis/tree/main#config).
 
 No data preparation is needed, only a **csv** file with raw text column (with arbitrary name).
+
+#### Config
+The user interface consists of only one files:
+- [**config.yaml**](https://github.com/dayyass/latent-semantic-analysis/blob/main/config.yaml) - general configuration with sklearn **TF-IDF** and **SVD** parameters
+
+Change **config.yaml** to create the desired configuration and train LSA model with the following command:
+- **terminal**:
+```shell script
+lsa-train --path_to_config config.yaml
+```
+- **python**:
+```python3
+import latent_semantic_analysis
+
+latent_semantic_analysis.train(path_to_config="config.yaml")
+```
+
+Default **config.yaml**:
+```yaml
+seed: 42
+path_to_save_folder: models
+
+# data
+data:
+  data_path: data/data.csv
+  sep: ','
+  text_column: text
+
+# tf-idf
+tf-idf:
+  lowercase: true
+  ngram_range: (1, 1)
+  max_df: 1.0
+  min_df: 1
+
+# svd
+svd:
+  n_components: 10
+  algorithm: arpack
+```
+
+**NOTE**: `tf-idf` and `svd` are sklearn [**TfidfVectorizer**](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html?highlight=tfidf#sklearn.feature_extraction.text.TfidfVectorizer) and [**TruncatedSVD**](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.TruncatedSVD.html) parameters correspondingly, so you can parameterize instances of these classes however you want.
