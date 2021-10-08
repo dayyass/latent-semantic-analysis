@@ -1,0 +1,15 @@
+codecov:
+  require_ci_to_pass: yes
+
+ignore:
+  - "latent_semantic_analysis/__main__.py"
+
+coverage:
+  status:
+    project:
+      default: false
+      source:
+        paths:
+          - "latent_semantic_analysis/"
+        target: 90%
+    patch: off
