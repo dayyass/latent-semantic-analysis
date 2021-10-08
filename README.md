@@ -89,3 +89,14 @@ After training the model, the pipeline will return the following files:
 
 ### Requirements
 Python >= 3.6
+
+### Citation
+If you use **latent-semantic-analysis** in a scientific publication, we would appreciate references to the following BibTex entry:
+```bibtex
+@misc{dayyass2021lsa,
+    author       = {El-Ayyass, Dani},
+    title        = {Pipeline for training LSA models},
+    howpublished = {\url{https://github.com/dayyass/latent-semantic-analysis}},
+    year         = {2021}
+}
+```
