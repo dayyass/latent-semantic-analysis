@@ -86,3 +86,6 @@ After training the model, the pipeline will return the following files:
 - `logging.txt` - logging file
 - `doc2topic.json` - document embeddings
 - `term2topic.json` - term embeddings
+
+### Requirements
+Python >= 3.6
