@@ -14,3 +14,25 @@
 
 ### Latent Semantic Analysis
 Pipeline for training **LSA** models using Scikit-Learn.
+
+### Usage
+Instead of writing custom code for latent semantic analysis, you just need:
+1. install pipeline:
+```shell script
+pip install latent-semantic-analysis
+```
+2. run pipeline:
+- either in **terminal**:
+```shell script
+lsa-train --path_to_config config.yaml
+```
+- or in **python**:
+```python3
+import latent_semantic_analysis
+
+latent_semantic_analysis.train(path_to_config="config.yaml")
+```
+
+**NOTE**: more about config file [here](https://github.com/dayyass/latent-semantic-analysis/tree/main#config).
+
+No data preparation is needed, only a **csv** file with raw text column (with arbitrary name).
