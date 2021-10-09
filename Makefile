@@ -1,5 +1,7 @@
 all:
 	python -m latent_semantic_analysis --path_to_config config.yaml
+load_data:
+	python data/load_20newsgroups.py
 coverage:
 	coverage run -m unittest discover && coverage report -m
 docker_build:
